@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html dir="ltr" class="client-js js no-touch svg inlinesvg svgclippaths no-ie8compat" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<title>Compiladores/Projecto de Compiladores/Projecto 2016-2017/Manual de Referência da Linguagem XPL - Wiki**3</title>
+<meta name="generator" content="MediaWiki 1.24.1">
+<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0">
+<meta name="theme-color" content="black">
+<link rel="shortcut icon" href="https://www.l2f.inesc-id.pt/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="https://www.l2f.inesc-id.pt/~david/wiki/pt/opensearch_desc.php" title="Wiki**3 (en)">
+<link rel="EditURI" type="application/rsd+xml" href="https://www.l2f.inesc-id.pt/~david/wiki/pt/api.php?action=rsd">
+<link rel="alternate" hreflang="x-default" href="https://www.l2f.inesc-id.pt/~david/w/pt/Compiladores/Projecto_de_Compiladores/Projecto_2016-2017/Manual_de_Refer%C3%AAncia_da_Linguagem_XPL">
+<link rel="alternate" type="application/atom+xml" title="Wiki**3 Atom feed" href="https://www.l2f.inesc-id.pt/~david/wiki/pt/index.php?title=Special:RecentChanges&amp;feed=atom">
+<link rel="stylesheet" href="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/load_002.css">
+<link rel="stylesheet" href="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/vis.html" media="screen"><style>
+.mw-collapsible-toggle{float:right;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none}.mw-customtoggle,.mw-collapsible-toggle{cursor:pointer} caption .mw-collapsible-toggle{float:none} li .mw-collapsible-toggle{float:none} .mw-collapsible-toggle-li{list-style:none}
+/* cache key: wikidavidpub-wikidavidpubpt_:resourceloader:filter:minify-css:7:869aa9133c31e6040d4830b259da96a8 */
+.suggestions{overflow:hidden;position:absolute;top:0;left:0;width:0;border:none;z-index:1099;padding:0;margin:-1px 0 0 0}.suggestions-special{position:relative;background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0;margin-top:-2px;display:none;padding:0.25em 0.25em;line-height:1.25em}.suggestions-results{background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0}.suggestions-result{color:black;margin:0;line-height:1.5em;padding:0.01em 0.25em;text-align:left; overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}.suggestions-result-current{background-color:#4C59A6;color:white}.suggestions-special .special-label{color:gray;text-align:left}.suggestions-special .special-query{color:black;font-style:italic;text-align:left}.suggestions-special .special-hover{background-color:silver}.suggestions-result-current .special-label,.suggestions-result-current .special-query{color:white}.highlight{font-weight:bold}
+/* cache key: wikidavidpub-wikidavidpubpt_:resourceloader:filter:minify-css:7:f8d0c6895ce3ae14434c16b8fca59432 */
+.postedit-container{margin:0 auto;position:fixed;top:0;height:0;left:50%;z-index:1000;font-size:13px}.postedit-container:hover{cursor:pointer}.postedit{position:relative;top:0.6em;left:-50%;padding:.6em 3.6em .6em 1.1em;line-height:1.5625em;color:#626465;background-color:#f4f4f4;border:1px solid #dcd9d9;text-shadow:0 0.0625em 0 rgba(255,255,255,0.5);border-radius:5px;box-shadow:0 2px 5px 0 #ccc;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;-ms-transition:all 0.25s ease-in-out;-o-transition:all 0.25s ease-in-out;transition:all 0.25s ease-in-out}.skin-monobook .postedit{top:6em !important}.postedit-faded{opacity:0}.postedit-icon{padding-left:41px;  line-height:25px;background-repeat:no-repeat;background-position:8px 50%}.postedit-icon-checkmark{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABblBMVEUAAAD///////9PfTf///80aRdTgjn///9Feij///////////9Rfzf///////////9PfjZRgDh1o1xOfTb///////+bwYqLtnj///////9PfTa82K////9WhT6YxIL///9QgDdTgzr////////j7uDl7eLq8efi693k7OH///////9UhjuBr2rp9uRUhjr///9YljVKgir///9WiTlYjT3////9/v57vFlbkT5PjC9dlD/5/fhuq09stUTs9uhxuElctCpfnT1huDFloEZloUZmpENmvDZpvDxpvTxqvjxrvT5rvT9rwTxsqktswD5uwkBvuUdxw0NztFBztU9ztVBzwkp0tlJ1xkd2t1R3uVR4w1F4xk54x014yE15uVZ5v1R5xVB6v1R7yFJ8wVh9xVl9yFR9yVd9ylN+xVh+yFd/x1l/yFeAylmEx1+Ny2uY0Hqe04Wj1Ymv3Ze33qLD47TJ5L3O6cPU7Mrq9eb2+/Q4j37OAAAAQHRSTlMAAQIEBAUFBQwPFB4fJCUoKiosQEhJS01RUlZZXmdydXaChYuSlJSWmJmoq6uur8LExcvM19fg5ejt8fX2+Pr7SljgewAAAKpJREFUGBkFwQNCAwAAAMDLtl3LtrG4rWXbtvX77gAgZ6grFwC0bhwNVgKgdPZx8b0dgLi+s7Wn0VoAqpfOI9+BNADZI7fLrz2pSEwGHZuH+78lSK8ZLkLezF3ooyUG3VPXq2USei9WngeyoG195yBYWDF3E/2pAhl1e9Gr8bGT+bfOFCC2fnvh4X7rcqIAQNNu+HT6sxkAjceTL/2ZAIhv+PorBwBJxfkA//dFHSCBy/UTAAAAAElFTkSuQmCC);background-image:url(https://www.l2f.inesc-id.pt/~david/wiki/pt/resources/src/mediawiki.action/images/green-checkmark.png?2014-12-17T20:11:40Z)!ie;background-position:left}.postedit-close{position:absolute;padding:0 .8em;right:0;top:0;font-size:1.25em;font-weight:bold;line-height:2.3em;color:black;text-shadow:0 0.0625em 0 white;text-decoration:none;opacity:0.2;filter:alpha(opacity=20)}.postedit-close:hover{color:black;text-decoration:none;opacity:0.4;filter:alpha(opacity=40)}
+/* cache key: wikidavidpub-wikidavidpubpt_:resourceloader:filter:minify-css:7:e3bcfbd194c9bf53c195a51407381bf5 */</style><style>
+.suggestions a.mw-searchSuggest-link,.suggestions a.mw-searchSuggest-link:hover,.suggestions a.mw-searchSuggest-link:active,.suggestions a.mw-searchSuggest-link:focus{color:black;text-decoration:none}.suggestions-result-current a.mw-searchSuggest-link,.suggestions-result-current a.mw-searchSuggest-link:hover,.suggestions-result-current a.mw-searchSuggest-link:active,.suggestions-result-current a.mw-searchSuggest-link:focus{color:white}.suggestions a.mw-searchSuggest-link .special-query{ overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}
+/* cache key: wikidavidpub-wikidavidpubpt_:resourceloader:filter:minify-css:7:ae3fa4570b5ac0c6cf7b3776c8ae4d6f */</style><meta name="ResourceLoaderDynamicStyles" content="">
+<link rel="stylesheet" href="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/load.css">
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: wikidavidpub-wikidavidpubpt_:resourceloader:filter:minify-css:7:c91a71297da9535e8a9c2db8a4976f8a */</style>
+<script src="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/load_004.php"></script><script src="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/load.php"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Compiladores/Projecto_de_Compiladores/Projecto_2016-2017/Manual_de_Referência_da_Linguagem_XPL","wgTitle":"Compiladores/Projecto de Compiladores/Projecto 2016-2017/Manual de Referência da Linguagem XPL","wgCurRevisionId":8862,"wgRevisionId":8862,"wgArticleId":1888,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Compiladores 2015/2016","Compiladores","Ensino"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Compiladores/Projecto_de_Compiladores/Projecto_2016-2017/Manual_de_Referência_da_Linguagem_XPL","wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":false,"previewDialog":false,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"editfont":"default","editondblclick":0,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":1,"extendwatchlist":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"imagesize":2,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nickname":"","norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"rcdays":7,"rclimit":50,"rows":25,"showhiddencats":0,"shownumberswatching":1,"showtoolbar":1,"skin":"foreground","stubthreshold":0,"thumbsize":5,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":1,"watchdefault":1,"watchdeletion":0,"watchlistdays":3,"watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"watchrollback":0,
+"wllimit":250,"useeditwarning":1,"prefershttps":1,"usebetatoolbar":1,"usebetatoolbar-cgd":1,"language":"en","variant-gan":"gan","variant-iu":"iu","variant-kk":"kk","variant-ku":"ku","variant-shi":"shi","variant-sr":"sr","variant-tg":"tg","variant-uz":"uz","variant-zh":"zh","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false,"variant":"en"});},{},{});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});},{},{});
+/* cache key: wikidavidpub-wikidavidpubpt_:resourceloader:filter:minify-js:7:deb5fdde5680d0b99961b6c7484b7199 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax"]);
+}</script><script src="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/load_002.php"></script>
+<link rel="shortcut icon" href="https://www.l2f.inesc-id.pt/~david/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://www.l2f.inesc-id.pt/~david/favicon.ico" type="image/x-icon">
+<script language="JavaScript" src="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/vis.js" type="text/javascript"></script>
+<script src="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/urchin.js" type="text/javascript">
+</script><script type="text/javascript">
+_uacct = "UA-19577574-1"; urchinTracker();
+</script>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Compiladores_Projecto_de_Compiladores_Projecto_2016-2017_Manual_de_Referência_da_Linguagem_XPL skin-foreground action-view">
+<div id="navwrapper"><!-- START FOREGROUNDTEMPLATE -->
+		<nav class="top-bar">
+			<ul class="title-area">
+				<li class="name">
+					<h1 class="title-name">
+					<a href="https://www.l2f.inesc-id.pt/~david/w/pt/P%C3%A1gina_Principal">
+										
+					<div class="title-name" style="display: inline-block;">Wiki**3</div>
+					</a>
+					</h1>
+				</li>
+				<li class="toggle-topbar menu-icon">
+					<a href="#"><span>Menu</span></a>
+				</li>
+			</ul>
+
+		
+		<section class="top-bar-section">
+
+			<ul id="top-bar-left" class="left">
+				<li class="divider"></li>
+									<li class="has-dropdown active" id="p-apresenta.C3.A7.C3.A3o">
+					<a href="#">apresentação</a>
+													<ul class="dropdown"><li class="title back js-generated"><h5><a href="#">« Back</a></h5></li>
+								<li id="n-P.C3.A1gina-Principal"><a href="https://www.l2f.inesc-id.pt/~david/w/pt/P%C3%A1gina_Principal">Página Principal</a></li><li id="n-Apresenta.C3.A7.C3.A3o"><a href="https://www.l2f.inesc-id.pt/~david/w/pt/Apresenta%C3%A7%C3%A3o">Apresentação</a></li><li id="n-Contactos"><a href="https://www.l2f.inesc-id.pt/~david/w/pt/Contactos">Contactos</a></li>							</ul>
+																		</li><li class="has-dropdown active" id="p-aulas">
+					<a href="#">aulas</a>
+													<ul class="dropdown"><li class="title back js-generated"><h5><a href="#">« Back</a></h5></li>
+								<li id="n-Compiladores"><a href="https://www.l2f.inesc-id.pt/~david/w/pt/Compiladores">Compiladores</a></li><li id="n-Programa.C3.A7.C3.A3o-com-Objectos"><a href="https://www.l2f.inesc-id.pt/~david/w/pt/Programa%C3%A7%C3%A3o_com_Objectos">Programação com Objectos</a></li><li id="n-Todas-as-Disciplinas..."><a href="https://www.l2f.inesc-id.pt/~david/w/pt/Actividades_Lectivas">Todas as Disciplinas...</a></li>							</ul>
+																		</li><li class="has-dropdown active" id="p-investiga.C3.A7.C3.A3o">
+					<a href="#">investigação</a>
+													<ul class="dropdown"><li class="title back js-generated"><h5><a href="#">« Back</a></h5></li>
+								<li id="n-Orienta.C3.A7.C3.B5es" class=""><a href="https://www.l2f.inesc-id.pt/~david/w/pt/Orienta%C3%A7%C3%A3o_Cient%C3%ADfica">Orientações</a></li><li id="n-Publica.C3.A7.C3.B5es"><a href="https://www.l2f.inesc-id.pt/~david/w/pt/Publica%C3%A7%C3%B5es">Publicações</a></li>							</ul>
+																		</li><li class="has-dropdown active" id="p-misc">
+					<a href="#">misc</a>
+													<ul class="dropdown"><li class="title back js-generated"><h5><a href="#">« Back</a></h5></li>
+								<li id="n-Downloads"><a href="https://www.l2f.inesc-id.pt/~david/w/pt/Downloads">Downloads</a></li><li id="n-portal"><a href="https://www.l2f.inesc-id.pt/~david/w/pt/Wiki**3:Community_portal" title="About the project, what you can do, where to find things">Community portal</a></li>							</ul>
+																							</li></ul>
+
+			<ul id="top-bar-right" class="right">
+				<li class="has-form">
+					<form action="/~david/wiki/pt/index.php" id="searchform" class="mw-search">
+						<div class="row">
+						<div class="small-12 columns">
+							<input name="search" placeholder="Search" title="Search Wiki**3 [Alt+Shift+f]" accesskey="f" id="searchInput" autocomplete="off" type="search">							<button type="submit" class="button search">Search</button>
+						</div>
+						</div>
+					</form>
+				</li>
+				<li class="divider show-for-small"></li>
+				<li class="has-form">
+
+				</li><li class="has-dropdown active"><a href="#"><i class="fa fa-cogs"></i></a>
+					<ul id="toolbox-dropdown" class="dropdown"><li class="title back js-generated"><h5><a href="#">« Back</a></h5></li>
+						<li id="t-whatlinkshere"><a href="https://www.l2f.inesc-id.pt/~david/w/pt/Special:WhatLinksHere/Compiladores/Projecto_de_Compiladores/Projecto_2016-2017/Manual_de_Refer%C3%AAncia_da_Linguagem_XPL" title="A list of all wiki pages that link here [Alt+Shift+j]" accesskey="j"><div class="drop-icon"><i class="fa fa-arrows fa-fw"></i></div>What links here</a></li><li id="t-recentchangeslinked"><a href="https://www.l2f.inesc-id.pt/~david/w/pt/Special:RecentChangesLinked/Compiladores/Projecto_de_Compiladores/Projecto_2016-2017/Manual_de_Refer%C3%AAncia_da_Linguagem_XPL" title="Recent changes in pages linked from this page [Alt+Shift+k]" accesskey="k"><div class="drop-icon"><i class="fa fa-bars fa-fw"></i></div>Related changes</a></li><li id="t-specialpages"><a href="https://www.l2f.inesc-id.pt/~david/w/pt/Special:SpecialPages" title="A list of all special pages [Alt+Shift+q]" accesskey="q"><div class="drop-icon"><i class="fa fa-magic fa-fw"></i></div>Special pages</a></li><li id="t-print"><a href="https://www.l2f.inesc-id.pt/~david/wiki/pt/index.php?title=Compiladores/Projecto_de_Compiladores/Projecto_2016-2017/Manual_de_Refer%C3%AAncia_da_Linguagem_XPL&amp;printable=yes" rel="alternate" title="Printable version of this page [Alt+Shift+p]" accesskey="p"><div class="drop-icon"><i class="fa fa-print fa-fw"></i></div>Printable version</a></li><li id="t-permalink"><a href="https://www.l2f.inesc-id.pt/~david/wiki/pt/index.php?title=Compiladores/Projecto_de_Compiladores/Projecto_2016-2017/Manual_de_Refer%C3%AAncia_da_Linguagem_XPL&amp;oldid=8862" title="Permanent link to this revision of the page"><div class="drop-icon"><i class="fa fa-dot-circle-o fa-fw"></i></div>Permanent link</a></li><li id="t-info"><a href="https://www.l2f.inesc-id.pt/~david/wiki/pt/index.php?title=Compiladores/Projecto_de_Compiladores/Projecto_2016-2017/Manual_de_Refer%C3%AAncia_da_Linguagem_XPL&amp;action=info"><div class="drop-icon"><i class="fa fa-info fa-fw"></i></div>Page information</a></li>						<li id="n-recentchanges"><a href="https://www.l2f.inesc-id.pt/~david/w/pt/Special:RecentChanges" title="Special:RecentChanges"><div class="drop-icon"><i class="fa fa-tasks fa-fw"></i></div>Recent changes</a></li>						<li id="n-help"><a href="https://www.l2f.inesc-id.pt/wiki/Help:Contents"><div class="drop-icon"><i class="fa fa-question fa-fw"></i></div>Help</a></li>					</ul>
+				</li>
+
+											<li>
+																	<a href="https://www.l2f.inesc-id.pt/~david/wiki/pt/index.php?title=Special:UserLogin&amp;returnto=Compiladores%2FProjecto+de+Compiladores%2FProjecto+2016-2017%2FManual+de+Refer%C3%AAncia+da+Linguagem+XPL">Log in</a>
+																</li>
+
+				
+			</ul>
+		</section></nav>
+		</div>		
+		<div id="page-content">
+		<div class="row">
+				<div class="large-12 columns">
+				<!--[if lt IE 9]>
+				<div id="siteNotice" class="sitenotice panel radius">Wiki**3 may not look as expected in this version of Internet Explorer. We recommend you upgrade to a newer version of Internet Explorer or switch to a browser like Firefox or Chrome.</div>
+				<![endif]-->
+
+												</div>
+		</div>
+
+		<div id="mw-js-message" style="display:none;"></div>
+
+		<div class="row">
+				<div id="p-cactions" class="large-12 columns">
+										<h2 class="title">Compiladores/Projecto de Compiladores/Projecto 2016-2017/Manual de Referência da Linguagem XPL</h2>
+					<h3 id="tagline">From Wiki**3</h3>					<h5 class="subtitle"><span class="subpages">&lt; <a href="https://www.l2f.inesc-id.pt/~david/w/pt/Compiladores" title="Compiladores">Compiladores</a>‎ | <a href="https://www.l2f.inesc-id.pt/~david/w/pt/Compiladores/Projecto_de_Compiladores" title="Compiladores/Projecto de Compiladores">Projecto de Compiladores</a></span></h5>
+					<div class="clear_both"></div>
+					<div class="mw-bodytext">
+						<div id="mw-content-text" dir="ltr" class="mw-content-ltr" lang="en"><table class="mw-collapsible mw-collapsed wikitable" style="border-style: solid; border-width: 1px; border-color: #bbbbaa; background: #f7f8ff; margin-bottom: 5px !important;" align="right">
+<tbody><tr>
+<th style="padding-left:10px; padding-right:10px; border-style: solid; border-width: 0px; border-bottom-width: 0px; border-color: #bbbbaa; background: #d7d8ed;"><span class="mw-collapsible-toggle mw-collapsible-toggle-collapsed"><span class="mw-collapsible-bracket">[</span><a href="#">Expand</a><span class="mw-collapsible-bracket">]</span></span> AVISOS - Avaliação em Época Normal
+</th></tr>
+<tr style="display: none;">
+<th style="padding-left:10px; padding-right:10px; font-weight: normal; border-style: solid; border-width: 1px; border-color: #bbbbaa;">
+<p>Esclarecimento de dúvidas:
+</p>
+<ul><li> Consultar sempre o corpo docente atempadamente: presencialmente ou através do endereço oficial da disciplina <a rel="nofollow" class="external autonumber" href="mailto:co17@l2f.inesc-id.pt">[1]</a>.</li>
+<li> Não utilizar fontes de informação não oficialmente associadas ao 
+corpo docente (podem colocar em causa a aprovação à disciplina).</li>
+<li> Não são aceites justificações para violações destes conselhos: 
+quaisquer consequências nefastas são da responsabilidade do aluno.</li></ul>
+</th></tr>
+<tr style="display: none;">
+<th style="padding-left:10px; padding-right:10px; font-weight: normal; border-style: solid; border-width: 1px; border-color: #bbbbaa;">
+<p>Requisitos para desenvolvimento, material de apoio e actualizações do enunciado (ver informação completa em <a href="https://www.l2f.inesc-id.pt/~david/w/pt/Compiladores/Projecto_de_Compiladores" title="Compiladores/Projecto de Compiladores">Projecto de Compiladores</a>):
+</p>
+<ul><li> O material de apoio é de uso obrigatório e não pode ser alterado.</li>
+<li> Verificar atempadamente (mínimo de 48 horas antes do final de cada 
+prazo) os requisitos exigidos pelo processo de desenvolvimento.</li></ul>
+</th></tr>
+<tr style="display: none;">
+<th style="padding-left:10px; padding-right:10px; font-weight: normal; border-style: solid; border-width: 1px; border-color: #bbbbaa;">
+<p>Processo de avaliação (ver informação completa em <a href="https://www.l2f.inesc-id.pt/~david/w/pt/Compiladores/Projecto_de_Compiladores/Avalia%C3%A7%C3%A3o_do_Projecto" title="Compiladores/Projecto de Compiladores/Avaliação do Projecto" class="mw-redirect">Avaliação do Projecto</a>):
+</p>
+<ul><li> Datas: <b>2017/03/24 17:00</b> (inicial); <b>2017/04/21 17:00</b> (intercalar); <b>2017/05/22 17:00</b> (final); <b>2017/05/22-2017/05/25</b> (teste prático).</li>
+<li> <b>A entrega inicial, sendo crucial para o projecto, é obrigatória e
+ sua não realização implica a exclusão da avaliação do projecto e, por 
+consequência, da avaliação da disciplina.</b></li>
+<li> Verificar atempadamente (até 48 horas antes do final de cada prazo)
+ os requisitos exigidos pelo processo de avaliação, incluindo a 
+capacidade de acesso ao repositório CVS.</li>
+<li> <b>Apenas se consideram para avaliação os projectos existentes no repositório CVS oficial.</b></li>
+<li> Trabalhos não presentes no repositório no final do prazo têm 
+classificação 0 (zero) (não são aceites outras formas de entrega). Não 
+são admitidas justificações para atrasos em sincronizações do 
+repositório. A indisponibilidade temporária do repositório, desde que 
+inferior a 24 horas, não justifica atrasos na submissão de um trabalho.</li>
+<li> A avaliação do projecto pressupõe o compromisso de honra de que o 
+trabalho correspondente foi realizado pelos alunos correspondentes ao 
+grupo de avaliação. </li>
+<li> <b>Fraudes na execução do projecto terão como resultado a exclusão dos alunos implicados do processo de avaliação em curso</b>.</li></ul>
+</th></tr></tbody></table>
+<table class="mw-collapsible mw-collapsed wikitable" style="border-style: solid; border-width: 1px; border-color: #bbbbaa; background: #ffdb24;" align="right">
+<tbody><tr>
+<th style="padding-left:10px; padding-right:10px; border-style: solid; border-width: 0px; border-bottom-width: 0px; border-color: #bbbbaa; background: #ffdb24;"><span class="mw-collapsible-toggle mw-collapsible-toggle-collapsed"><span class="mw-collapsible-bracket">[</span><a href="#">Expand</a><span class="mw-collapsible-bracket">]</span></span> <b><font color="brown">Material de Uso Obrigatório</font></b>
+</th></tr>
+<tr style="display: none;">
+<th style="padding-left:10px; padding-right:10px; font-weight: normal; border-style: solid; border-width: 0px; border-color: #bbbbaa;"> As bibliotecas <strong>CDK</strong> e <strong>RTS</strong> de apoio ao desenvolvimento do projecto são de <strong>uso obrigatório</strong>:
+</th></tr>
+<tr style="display: none;">
+<th style="padding-left:10px; padding-right:10px; font-weight: normal; border-style: solid; border-width: 0px; border-color: #bbbbaa;">
+<ul><li> CDK12 - "Compiler Development Kit"   <a href="https://www.l2f.inesc-id.pt/~david/wiki/pt/images/e/ee/Libcdk12-201612301740.tar.bz2" class="internal" title="Libcdk12-201612301740.tar.bz2">media:libcdk12-201612301740.tar.bz2</a></li>
+<li> RTS4 - "Run Time System"   <a href="https://www.l2f.inesc-id.pt/~david/wiki/pt/images/c/cc/Librts4-201602111900.tar.bz2" class="internal" title="Librts4-201602111900.tar.bz2">media:librts4-201602111900.tar.bz2</a></li></ul>
+</th></tr>
+<tr style="display: none;">
+<th style="padding-left:10px; padding-right:10px; font-weight: normal; border-style: solid; border-width: 0px; border-color: #bbbbaa;"> A <a href="https://www.l2f.inesc-id.pt/~david/w/pt/Compiladores/Projecto_de_Compiladores/M%C3%A1quina_Virtual" title="Compiladores/Projecto de Compiladores/Máquina Virtual">máquina virtual</a>, fornecida para desenvolvimento do projecto, já contém todo o material de apoio.
+</th></tr>
+<tr style="display: none;">
+<th style="padding-left:10px; padding-right:10px; border-style: solid; border-width: 1px; border-bottom-width: 0px; border-color: #bbbbaa; background: #ffdb24;"> <b><font color="brown">Uso Obrigatório: Repositório CVS</font></b>
+</th></tr>
+<tr style="display: none;">
+<th style="padding-left:10px; padding-right:10px; font-weight: normal; border-style: solid; border-width: 0px; border-color: #bbbbaa;"> <b>Apenas se consideram para avaliação os projectos existentes no <a href="https://www.l2f.inesc-id.pt/~david/w/pt/Compiladores/Projecto_de_Compiladores/Reposit%C3%B3rio_CVS" title="Compiladores/Projecto de Compiladores/Repositório CVS">repositório CVS oficial</a></b>.
+<p>Trabalhos não presentes no repositório no final do prazo têm 
+classificação 0 (zero) (não são aceites outras formas de entrega). Não 
+são admitidas justificações para atrasos em sincronizações do 
+repositório. A indisponibilidade temporária do repositório, desde que 
+inferior a 24 horas, não justifica atrasos na submissão de um trabalho.
+</p>
+</th></tr></tbody></table>
+<table style="clear:right; margin-bottom: .5em; float: right; padding: .5em 0 .8em 1.4em; background: none;" cellspacing="0" cellpadding="0">
+<tbody><tr>
+<td>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2><span class="toctoggle">&nbsp;[<a href="#" id="togglelink">hide</a>]&nbsp;</span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Tipos_de_Dados"><span class="tocnumber">1</span> <span class="toctext">Tipos de Dados</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Manipula.C3.A7.C3.A3o_de_Nomes"><span class="tocnumber">2</span> <span class="toctext">Manipulação de Nomes</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Espa.C3.A7o_de_nomes_e_visibilidade_dos_identificadores"><span class="tocnumber">2.1</span> <span class="toctext">Espaço de nomes e visibilidade dos identificadores</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Validade_das_vari.C3.A1veis"><span class="tocnumber">2.2</span> <span class="toctext">Validade das variáveis</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="#Conven.C3.A7.C3.B5es_Lexicais"><span class="tocnumber">3</span> <span class="toctext">Convenções Lexicais</span></a>
+<ul>
+<li class="toclevel-2 tocsection-6"><a href="#Caracteres_brancos"><span class="tocnumber">3.1</span> <span class="toctext">Caracteres brancos</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Coment.C3.A1rios"><span class="tocnumber">3.2</span> <span class="toctext">Comentários</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Palavras_chave"><span class="tocnumber">3.3</span> <span class="toctext">Palavras chave</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Tipos"><span class="tocnumber">3.4</span> <span class="toctext">Tipos</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#Operadores_de_express.C3.B5es"><span class="tocnumber">3.5</span> <span class="toctext">Operadores de expressões</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#Delimitadores_e_terminadores"><span class="tocnumber">3.6</span> <span class="toctext">Delimitadores e terminadores</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="#Identificadores_.28nomes.29"><span class="tocnumber">3.7</span> <span class="toctext">Identificadores (nomes)</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="#Literais"><span class="tocnumber">3.8</span> <span class="toctext">Literais</span></a>
+<ul>
+<li class="toclevel-3 tocsection-14"><a href="#Inteiros"><span class="tocnumber">3.8.1</span> <span class="toctext">Inteiros</span></a></li>
+<li class="toclevel-3 tocsection-15"><a href="#Reais_em_v.C3.ADrgula_flutuante"><span class="tocnumber">3.8.2</span> <span class="toctext">Reais em vírgula flutuante</span></a></li>
+<li class="toclevel-3 tocsection-16"><a href="#Cadeias_de_caracteres"><span class="tocnumber">3.8.3</span> <span class="toctext">Cadeias de caracteres</span></a></li>
+<li class="toclevel-3 tocsection-17"><a href="#Ponteiros"><span class="tocnumber">3.8.4</span> <span class="toctext">Ponteiros</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-18"><a href="#Gram.C3.A1tica"><span class="tocnumber">4</span> <span class="toctext">Gramática</span></a>
+<ul>
+<li class="toclevel-2 tocsection-19"><a href="#Tipos.2C_identificadores.2C_literais_e_defini.C3.A7.C3.A3o_de_express.C3.B5es"><span class="tocnumber">4.1</span> <span class="toctext">Tipos, identificadores, literais e definição de expressões</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="#Left-values"><span class="tocnumber">4.2</span> <span class="toctext">Left-values</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="#Ficheiros"><span class="tocnumber">4.3</span> <span class="toctext">Ficheiros</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="#Declara.C3.A7.C3.A3o_de_vari.C3.A1veis"><span class="tocnumber">4.4</span> <span class="toctext">Declaração de variáveis</span></a></li>
+<li class="toclevel-2 tocsection-23"><a href="#S.C3.ADmbolos_globais"><span class="tocnumber">4.5</span> <span class="toctext">Símbolos globais</span></a></li>
+<li class="toclevel-2 tocsection-24"><a href="#Inicializa.C3.A7.C3.A3o"><span class="tocnumber">4.6</span> <span class="toctext">Inicialização</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-25"><a href="#Fun.C3.A7.C3.B5es"><span class="tocnumber">5</span> <span class="toctext">Funções</span></a>
+<ul>
+<li class="toclevel-2 tocsection-26"><a href="#Declara.C3.A7.C3.A3o"><span class="tocnumber">5.1</span> <span class="toctext">Declaração</span></a></li>
+<li class="toclevel-2 tocsection-27"><a href="#Invoca.C3.A7.C3.A3o"><span class="tocnumber">5.2</span> <span class="toctext">Invocação</span></a></li>
+<li class="toclevel-2 tocsection-28"><a href="#Corpo"><span class="tocnumber">5.3</span> <span class="toctext">Corpo</span></a></li>
+<li class="toclevel-2 tocsection-29"><a href="#Fun.C3.A7.C3.A3o_principal_e_execu.C3.A7.C3.A3o_de_programas"><span class="tocnumber">5.4</span> <span class="toctext">Função principal e execução de programas</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-30"><a href="#Instru.C3.A7.C3.B5es"><span class="tocnumber">6</span> <span class="toctext">Instruções</span></a>
+<ul>
+<li class="toclevel-2 tocsection-31"><a href="#Blocos"><span class="tocnumber">6.1</span> <span class="toctext">Blocos</span></a></li>
+<li class="toclevel-2 tocsection-32"><a href="#Instru.C3.A7.C3.A3o_condicional"><span class="tocnumber">6.2</span> <span class="toctext">Instrução condicional</span></a></li>
+<li class="toclevel-2 tocsection-33"><a href="#Instru.C3.A7.C3.A3o_de_itera.C3.A7.C3.A3o:_while"><span class="tocnumber">6.3</span> <span class="toctext">Instrução de iteração: while</span></a></li>
+<li class="toclevel-2 tocsection-34"><a href="#Instru.C3.A7.C3.A3o_de_itera.C3.A7.C3.A3o:_sweep"><span class="tocnumber">6.4</span> <span class="toctext">Instrução de iteração: sweep</span></a></li>
+<li class="toclevel-2 tocsection-35"><a href="#Instru.C3.A7.C3.A3o_de_termina.C3.A7.C3.A3o:_stop"><span class="tocnumber">6.5</span> <span class="toctext">Instrução de terminação: stop</span></a></li>
+<li class="toclevel-2 tocsection-36"><a href="#Instru.C3.A7.C3.A3o_de_continua.C3.A7.C3.A3o:_next"><span class="tocnumber">6.6</span> <span class="toctext">Instrução de continuação: next</span></a></li>
+<li class="toclevel-2 tocsection-37"><a href="#Instru.C3.A7.C3.A3o_de_retorno:_return"><span class="tocnumber">6.7</span> <span class="toctext">Instrução de retorno: return</span></a></li>
+<li class="toclevel-2 tocsection-38"><a href="#Express.C3.B5es_como_instru.C3.A7.C3.B5es_e_opera.C3.A7.C3.B5es_de_impress.C3.A3o"><span class="tocnumber">6.8</span> <span class="toctext">Expressões como instruções e operações de impressão</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-39"><a href="#Express.C3.B5es"><span class="tocnumber">7</span> <span class="toctext">Expressões</span></a>
+<ul>
+<li class="toclevel-2 tocsection-40"><a href="#Express.C3.B5es_primitivas"><span class="tocnumber">7.1</span> <span class="toctext">Expressões primitivas</span></a>
+<ul>
+<li class="toclevel-3 tocsection-41"><a href="#Identificadores"><span class="tocnumber">7.1.1</span> <span class="toctext">Identificadores</span></a></li>
+<li class="toclevel-3 tocsection-42"><a href="#Leitura"><span class="tocnumber">7.1.2</span> <span class="toctext">Leitura</span></a></li>
+<li class="toclevel-3 tocsection-43"><a href="#Par.C3.AAnteses_curvos"><span class="tocnumber">7.1.3</span> <span class="toctext">Parênteses curvos</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-44"><a href="#Express.C3.B5es_resultantes_de_avalia.C3.A7.C3.A3o_de_operadores"><span class="tocnumber">7.2</span> <span class="toctext">Expressões resultantes de avaliação de operadores</span></a>
+<ul>
+<li class="toclevel-3 tocsection-45"><a href="#Indexa.C3.A7.C3.A3o"><span class="tocnumber">7.2.1</span> <span class="toctext">Indexação</span></a></li>
+<li class="toclevel-3 tocsection-46"><a href="#Identidade_e_sim.C3.A9trico"><span class="tocnumber">7.2.2</span> <span class="toctext">Identidade e simétrico</span></a></li>
+<li class="toclevel-3 tocsection-47"><a href="#Reserva_de_mem.C3.B3ria"><span class="tocnumber">7.2.3</span> <span class="toctext">Reserva de memória</span></a></li>
+<li class="toclevel-3 tocsection-48"><a href="#Express.C3.A3o_de_indica.C3.A7.C3.A3o_de_posi.C3.A7.C3.A3o"><span class="tocnumber">7.2.4</span> <span class="toctext">Expressão de indicação de posição</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-49"><a href="#Exemplos_e_Testes"><span class="tocnumber">8</span> <span class="toctext">Exemplos e Testes</span></a></li>
+<li class="toclevel-1 tocsection-50"><a href="#Omiss.C3.B5es_e_Erros"><span class="tocnumber">9</span> <span class="toctext">Omissões e Erros</span></a></li>
+</ul>
+</div>
+
+</td></tr></tbody></table>
+<p>A linguagem XPL é uma linguagem imperativa e é apresentada de forma 
+intuitiva neste manual. São apresentadas características básicas da 
+linguagem (<a href="#Tipos_de_Dados">tipos de dados</a>, <a href="#Manipula.C3.A7.C3.A3o_de_Nomes">manipulação de nomes</a>); <a href="#Conven.C3.A7.C3.B5es_Lexicais">convenções lexicais</a>; <a href="#Gram.C3.A1tica">estrutura/sintaxe</a>; <a href="#Fun.C3.A7.C3.B5es">especificação das funções</a>; <a href="#Instru.C3.A7.C3.B5es">semântica das instruções</a>; <a href="#Express.C3.B5es">semântica das expressões</a>; e, finalmente, <a href="#Exemplos">alguns exemplos</a>.
+</p>
+<h1><span class="mw-headline" id="Tipos_de_Dados">Tipos de Dados</span></h1>
+<p>A linguagem é fracamente tipificada (são efectuadas algumas 
+conversões implícitas). Existem 4 tipos de dados, todos compatíveis com a
+ <a rel="nofollow" class="external text" href="https://en.wikipedia.org/wiki/C_(programming_language)">linguagem C</a>, e com alinhamento em memória sempre a 32 bits:
+</p>
+<ul><li> Tipos numéricos: os <b>inteiros</b>, em <a rel="nofollow" class="external text" href="https://en.wikipedia.org/wiki/Two%27s_complement">complemento para dois</a>, ocupam 4 bytes; os <b>reais</b>, em <a rel="nofollow" class="external text" href="https://en.wikipedia.org/wiki/Floating_point">vírgula flutuante</a>, ocupam 8 bytes (<a rel="nofollow" class="external text" href="https://en.wikipedia.org/wiki/IEEE_floating_point">IEEE 754</a>).</li>
+<li> As <b>cadeias de caracteres</b> são vectores de caracteres terminados por <a rel="nofollow" class="external text" href="https://en.wikipedia.org/wiki/ASCII">ASCII</a> NULL (<b>0x00</b>, <b>\0</b>). Variáveis e literais deste tipo só podem ser utilizados em atribuições, impressões, ou como argumentos/retornos de funções.</li>
+<li> Os <b>ponteiros</b> representam endereços de objectos e ocupam 4 
+bytes. Podem ser objecto de operações aritméticas (deslocamentos) e 
+permitem aceder ao valor apontado.</li></ul>
+<p>Os tipos suportados por cada operador e a operação a realizar são indicados na <a href="#Express.C3.B5es">definição das expressões</a>.
+</p>
+<h1><span class="mw-headline" id="Manipula.C3.A7.C3.A3o_de_Nomes">Manipulação de Nomes</span></h1>
+<p>Os nomes (<a href="#Identificadores">identificadores</a>) 
+correspondem a variáveis e funções. Nos pontos que se seguem, usa-se o 
+termo entidade para as designar indiscriminadamente, explicitando-se 
+quando a descrição for válida apenas para um subconjunto.
+</p>
+<h2><span class="mw-headline" id="Espa.C3.A7o_de_nomes_e_visibilidade_dos_identificadores">Espaço de nomes e visibilidade dos identificadores</span></h2>
+<p>O espaço de nomes global é único, pelo que um nome utilizado para 
+designar uma entidade num dado contexto não pode ser utilizado para 
+designar outras (ainda que de natureza diferente).
+</p><p>Os identificadores são visíveis desde a declaração até ao fim do 
+alcance: ficheiro (globais) ou função (locais). A reutilização de 
+identificadores em contextos inferiores encobre declarações em contextos
+ superiores: redeclarações locais podem encobrir as globais até ao fim 
+de uma função. É possível utilizar símbolos globais nos contextos das 
+funções, mas não é possível defini-los (ver <a href="#S.C3.ADmbolos_globais">símbolos globais</a>).
+</p>
+<h2><span class="mw-headline" id="Validade_das_vari.C3.A1veis">Validade das variáveis</span></h2>
+<p>As entidades globais (declaradas fora de qualquer função), existem 
+durante toda a execução do programa. As variáveis locais a uma função 
+existem apenas durante a sua execução. Os argumentos formais são válidos
+ enquanto a função está activa.
+</p>
+<h1><span class="mw-headline" id="Conven.C3.A7.C3.B5es_Lexicais">Convenções Lexicais</span></h1>
+<p>Para cada grupo de elementos lexicais (<i>tokens</i>), considera-se a maior sequência de caracteres constituindo um elemento válido.
+</p>
+<h2><span class="mw-headline" id="Caracteres_brancos">Caracteres brancos</span></h2>
+<p>São considerados separadores e não representam nenhum elemento lexical: <b>mudança de linha</b> ASCII LF (<b>0x0A</b>, <b>\n</b>), <b>recuo do carreto</b> ASCII CR (<b>0x0D</b>, <b>\r</b>), <b>espaço</b> ASCII SP (<b>0x20</b>, <a href="https://www.l2f.inesc-id.pt/~david/wiki/pt/extensions/wikitex/tmp/c456fcd97e0c11758fee14260fc9222f"><img src="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/c456fcd97e0c11758fee14260fc9222f1.png" alt="amsmath"></a>) e <b>tabulação horizontal</b> ASCII HT (<b>0x09</b>, <b>\t</b>).
+</p>
+<h2><span class="mw-headline" id="Coment.C3.A1rios">Comentários</span></h2>
+<p>Existem dois tipos de comentários, que também funcionam como elementos separadores:
+</p>
+<ul><li> <b>explicativos</b> -- começam com <b>//</b> e acabam no fim da linha; e</li>
+<li> <b>operacionais</b> -- começam com <b>/*</b> e terminam com <b>*/</b>, podendo estar aninhados.</li></ul>
+<p>Se as sequências de início fizerem parte de uma cadeia de caracteres, não iniciam um comentário (ver definição das <a href="#Cadeias_de_caracteres">cadeias de caracteres</a>).
+</p>
+<h2><span class="mw-headline" id="Palavras_chave">Palavras chave</span></h2>
+<p>As seguintes palavras são reservadas e não constituindo identificadores (devem ser escritas exactamente como indicado):
+</p><p><b>int real string procedure public use if elsif else while sweep next null stop return</b>
+</p><p>O identificador <b>xpl</b>, embora não reservado, corresponde à <a href="#Fun.C3.A7.C3.A3o_principal_e_execu.C3.A7.C3.A3o_de_programas">função principal</a>.
+</p>
+<h2><span class="mw-headline" id="Tipos">Tipos</span></h2>
+<p>Os seguintes elementos lexicais designam tipos em declarações (ver <a href="#Gram.C3.A1tica">gramática</a>): <b>int</b> (inteiro), <b>real</b> (real), <b>string</b> (cadeia de caracteres).
+</p><p>Os tipos correspondentes a ponteiros são delimitados por <b>[</b> e por <b>]</b> (ver <a href="#Gram.C3.A1tica">gramática</a>).
+</p>
+<h2><span class="mw-headline" id="Operadores_de_express.C3.B5es">Operadores de expressões</span></h2>
+<p>São considerados operadores os elementos lexicais apresentados na <a href="#Express.C3.B5es">definição das expressões</a>.
+</p>
+<h2><span class="mw-headline" id="Delimitadores_e_terminadores">Delimitadores e terminadores</span></h2>
+<p>Os seguintes elementos lexicais são delimitadores/terminadores: <b>,</b> (vírgula), <b>;</b> (ponto e vírgula), <b>!</b> e <b>!!</b> (operações de impressão), e <b>(</b> e <b>)</b> (delimitadores de expressões).
+</p>
+<h2><span class="mw-headline" id="Identificadores_.28nomes.29">Identificadores (nomes)</span></h2>
+<p>São iniciados por uma letra ou por <b>_</b> (sublinhado), seguindo-se 0 (zero) ou mais letras, dígitos ou <b>_</b>
+ (sublinhado). O comprimento do nome é ilimitado e dois nomes são 
+distintos se houver alteração de maiúscula para minúscula, ou 
+vice-versa, de pelo menos um carácter.
+</p>
+<h2><span class="mw-headline" id="Literais">Literais</span></h2>
+<p>São notações para valores constantes de alguns tipos da linguagem 
+(não confundir com constantes, i.e., identificadores que designam 
+elementos cujo valor não pode ser alterado durante a execução do 
+programa).
+</p>
+<h3><span class="mw-headline" id="Inteiros">Inteiros</span></h3>
+<p>Um literal inteiro é um número não negativo.  Números negativos são construídos pela aplicação do operador de negação unária (<b>-</b>) a um literal positivo.
+</p><p>Literais inteiros decimais são constituídos por sequências de 1 (um) ou mais dígitos de <b>0</b> a <b>9</b>, em que o primeiro dígito não é <b>0</b> (zero), excepto no caso do número 0 (zero). Neste caso, é composto apenas pelo dígito <b>0</b> (zero) (em qualquer base).
+</p><p>Literais inteiros hexadecimais começam sempre com a sequência <b>0x</b>, seguida de um ou mais digitos de <b>0</b> a <b>9</b> ou de <b>a</b> a <b>f</b> (sem distinguir maiúsculas de minúsculas). As letras de <b>a</b> a <b>f</b> representam os valores de 10 a 15 respectivamente. Exemplo: <b>0x07</b>.
+</p><p>Se não for possível representar o literal inteiro na máquina, devido a um overflow, deverá ser gerado um erro lexical.
+</p>
+<h3><span class="mw-headline" id="Reais_em_v.C3.ADrgula_flutuante">Reais em vírgula flutuante</span></h3>
+<p>Os literais reais são expressos tal como em C.
+</p><p>Um literal sem <b>.</b> (ponto decimal) nem parte exponencial é do tipo inteiro.
+</p><p>Exemplos: <b>3.14</b>, <b>1E3</b> = 1000 (número inteiro representado em vírgula flutuante), <b>12.34e-24</b> = 12.34 x 10<sup>-24</sup> (notação científica).
+</p>
+<h3><span class="mw-headline" id="Cadeias_de_caracteres">Cadeias de caracteres</span></h3>
+<p>As cadeias de caracteres são delimitadas por aspas (<b>"</b>) e podem conter quaisquer caracteres, excepto ASCII NULL (<b>0x00</b> <b>\0</b>). Nas cadeias, os delimitadores de comentários não têm significado especial. Se for escrito um literal que contenha <b>\0</b>, então a cadeia termina nessa posição. Exemplo: <b>"ab\0xy"</b> tem o mesmo significado que <b>"ab"</b>.
+</p><p>É possível designar caracteres por sequências especiais (iniciadas por <b>\</b>),
+ especialmente úteis quando não existe representação gráfica directa. As
+ sequências especiais correspondem aos caracteres ASCII LF, CR e HT (<b>\n</b>, <b>\r</b> e <b>\t</b>, respectivamente), aspa (<b>\"</b>), barra (<b>\\</b>), ou a quaisquer outros especificados através de 1 ou 2 digitos hexadecimais (e.g. <b>\0a</b> ou apenas <b>\a</b> se o carácter seguinte não representar um dígito hexadecimal). Exemplo: <b>"xy\0az"</b> tem o mesmo significado que <b>"xy\az"</b> e que <b>"xy\nz"</b>.
+</p><p>Elementos lexicais distintos que representem duas ou mais cadeias
+ consecutivas são representadas na linguagem como uma única cadeia que 
+resulta da concatenação. Exemplo: <b>"ab"</b><a href="https://www.l2f.inesc-id.pt/~david/wiki/pt/extensions/wikitex/tmp/c456fcd97e0c11758fee14260fc9222f"><img src="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/c456fcd97e0c11758fee14260fc9222f1.png" alt="amsmath"></a><b>"cd"</b> é o mesmo que <b>"abcd"</b>.
+</p>
+<h3><span class="mw-headline" id="Ponteiros">Ponteiros</span></h3>
+<p>O único literal admissível para ponteiros corresponde ao ponteiro nulo e é indicado pela palavra reservada <b>null</b>.
+</p>
+<h1><span class="mw-headline" id="Gram.C3.A1tica">Gramática</span></h1>
+<p>A gramática da linguagem está resumida abaixo. Considerou-se que os 
+elementos em tipo fixo são literais, que os parênteses curvos agrupam 
+elementos, que elementos alternativos são separados por uma barra 
+vertical, que elementos opcionais estão entre parênteses rectos, que os 
+elementos que se repetem zero ou mais vezes estão entre <a href="https://www.l2f.inesc-id.pt/~david/wiki/pt/extensions/wikitex/tmp/0e94f77d66203471861503dc9a0caf76"><img src="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/0e94f77d66203471861503dc9a0caf761.png" alt="amsmath"></a> e <a href="https://www.l2f.inesc-id.pt/~david/wiki/pt/extensions/wikitex/tmp/5904ead0c81f10f9d01c41b00dcc9747"><img src="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/5904ead0c81f10f9d01c41b00dcc97471.png" alt="amsmath"></a>.
+ Alguns elementos usados na gramática também são elementos da linguagem 
+descrita se representados em tipo fixo (e.g., parênteses).
+</p>
+<table>
+<tbody><tr>
+<th style="width: 140px; font-weight: normal;"> <i>ficheiro</i>
+</th>
+<th style="width: 50px; font-weight: normal;"> <a href="https://www.l2f.inesc-id.pt/~david/wiki/pt/extensions/wikitex/tmp/5bb9108ec17828b8c4063b514cd97a93"><img src="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/5bb9108ec17828b8c4063b514cd97a931.png" alt="amsmath"></a>
+</th>
+<td> <a href="https://www.l2f.inesc-id.pt/~david/wiki/pt/extensions/wikitex/tmp/0e94f77d66203471861503dc9a0caf76"><img src="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/0e94f77d66203471861503dc9a0caf761.png" alt="amsmath"></a> <i>declaração</i> <a href="https://www.l2f.inesc-id.pt/~david/wiki/pt/extensions/wikitex/tmp/5904ead0c81f10f9d01c41b00dcc9747"><img src="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/5904ead0c81f10f9d01c41b00dcc97471.png" alt="amsmath"></a>
+</td></tr>
+<tr>
+<th style="width: 150px; font-weight: normal;"> <i>declaração</i>
+</th>
+<th style="width: 50px; font-weight: normal;"><a href="https://www.l2f.inesc-id.pt/~david/wiki/pt/extensions/wikitex/tmp/5bb9108ec17828b8c4063b514cd97a93"><img src="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/5bb9108ec17828b8c4063b514cd97a931.png" alt="amsmath"></a>
+</th>
+<td> <i>variável</i> <b>;</b> <a href="https://www.l2f.inesc-id.pt/~david/wiki/pt/extensions/wikitex/tmp/cf14e61a7be033c1383d61d1eed4ba88"><img src="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/cf14e61a7be033c1383d61d1eed4ba881.png" alt="amsmath"></a> <i>função</i>
+</td></tr>
+<tr>
+<th style="width: 50px; font-weight: normal;"> <i>variável</i>
+</th>
+<th style="width: 50px; font-weight: normal;"><a href="https://www.l2f.inesc-id.pt/~david/wiki/pt/extensions/wikitex/tmp/5bb9108ec17828b8c4063b514cd97a93"><img src="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/5bb9108ec17828b8c4063b514cd97a931.png" alt="amsmath"></a>
+</th>
+<td> [ <i>qualificador</i> ] <i>tipo</i> <i>identificador</i> [ <b>=</b> <i>expressão</i> ]
+</td></tr>
+<tr>
+<th style="width: 50px; font-weight: normal;"> <i>função</i>
+</th>
+<th style="width: 50px; font-weight: normal;"><a href="https://www.l2f.inesc-id.pt/~david/wiki/pt/extensions/wikitex/tmp/5bb9108ec17828b8c4063b514cd97a93"><img src="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/5bb9108ec17828b8c4063b514cd97a931.png" alt="amsmath"></a>
+</th>
+<td> [ <i>qualificador</i> ] ( <i>tipo</i> <a href="https://www.l2f.inesc-id.pt/~david/wiki/pt/extensions/wikitex/tmp/cf14e61a7be033c1383d61d1eed4ba88"><img src="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/cf14e61a7be033c1383d61d1eed4ba881.png" alt="amsmath"></a> <b>procedure</b> ) <i>identificador</i> <b>(</b> [ <i>variáveis</i> ] <b>)</b> [ <b>=</b> <i>literal</i> ] [ <i>corpo</i> ]
+</td></tr>
+<tr>
+<th style="width: 50px; font-weight: normal;"> <i>variáveis</i>
+</th>
+<th style="width: 50px; font-weight: normal;"><a href="https://www.l2f.inesc-id.pt/~david/wiki/pt/extensions/wikitex/tmp/5bb9108ec17828b8c4063b514cd97a93"><img src="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/5bb9108ec17828b8c4063b514cd97a931.png" alt="amsmath"></a>
+</th>
+<td> <i>variável</i> <a href="https://www.l2f.inesc-id.pt/~david/wiki/pt/extensions/wikitex/tmp/0e94f77d66203471861503dc9a0caf76"><img src="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/0e94f77d66203471861503dc9a0caf761.png" alt="amsmath"></a> <b>,</b> <i>variável</i> <a href="https://www.l2f.inesc-id.pt/~david/wiki/pt/extensions/wikitex/tmp/5904ead0c81f10f9d01c41b00dcc9747"><img src="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/5904ead0c81f10f9d01c41b00dcc97471.png" alt="amsmath"></a>
+</td></tr>
+<tr>
+<th style="width: 50px; font-weight: normal;"> <i>tipo</i>
+</th>
+<th style="width: 50px; font-weight: normal;"><a href="https://www.l2f.inesc-id.pt/~david/wiki/pt/extensions/wikitex/tmp/5bb9108ec17828b8c4063b514cd97a93"><img src="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/5bb9108ec17828b8c4063b514cd97a931.png" alt="amsmath"></a>
+</th>
+<td> <b>inteiro</b> <a href="https://www.l2f.inesc-id.pt/~david/wiki/pt/extensions/wikitex/tmp/cf14e61a7be033c1383d61d1eed4ba88"><img src="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/cf14e61a7be033c1383d61d1eed4ba881.png" alt="amsmath"></a> <b>real</b> <a href="https://www.l2f.inesc-id.pt/~david/wiki/pt/extensions/wikitex/tmp/cf14e61a7be033c1383d61d1eed4ba88"><img src="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/cf14e61a7be033c1383d61d1eed4ba881.png" alt="amsmath"></a> <b>string</b> <a href="https://www.l2f.inesc-id.pt/~david/wiki/pt/extensions/wikitex/tmp/cf14e61a7be033c1383d61d1eed4ba88"><img src="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/cf14e61a7be033c1383d61d1eed4ba881.png" alt="amsmath"></a> <b>[</b> <i>tipo</i> <b>]</b>
+</td></tr>
+<tr>
+<th style="width: 50px; font-weight: normal;"> <i>corpo</i>
+</th>
+<th style="width: 50px; font-weight: normal;"><a href="https://www.l2f.inesc-id.pt/~david/wiki/pt/extensions/wikitex/tmp/5bb9108ec17828b8c4063b514cd97a93"><img src="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/5bb9108ec17828b8c4063b514cd97a931.png" alt="amsmath"></a>
+</th>
+<td> <i>bloco</i>
+</td></tr>
+<tr>
+<th style="width: 50px; font-weight: normal;"> <i>bloco</i>
+</th>
+<th style="width: 50px; font-weight: normal;"><a href="https://www.l2f.inesc-id.pt/~david/wiki/pt/extensions/wikitex/tmp/5bb9108ec17828b8c4063b514cd97a93"><img src="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/5bb9108ec17828b8c4063b514cd97a931.png" alt="amsmath"></a>
+</th>
+<td> <b>{</b> <a href="https://www.l2f.inesc-id.pt/~david/wiki/pt/extensions/wikitex/tmp/0e94f77d66203471861503dc9a0caf76"><img src="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/0e94f77d66203471861503dc9a0caf761.png" alt="amsmath"></a> <i>declaração</i> <a href="https://www.l2f.inesc-id.pt/~david/wiki/pt/extensions/wikitex/tmp/5904ead0c81f10f9d01c41b00dcc9747"><img src="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/5904ead0c81f10f9d01c41b00dcc97471.png" alt="amsmath"></a> <a href="https://www.l2f.inesc-id.pt/~david/wiki/pt/extensions/wikitex/tmp/0e94f77d66203471861503dc9a0caf76"><img src="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/0e94f77d66203471861503dc9a0caf761.png" alt="amsmath"></a> <i>instrução</i> <a href="https://www.l2f.inesc-id.pt/~david/wiki/pt/extensions/wikitex/tmp/5904ead0c81f10f9d01c41b00dcc9747"><img src="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/5904ead0c81f10f9d01c41b00dcc97471.png" alt="amsmath"></a> <b>}</b>
+</td></tr>
+<tr>
+<th style="width: 50px; font-weight: normal;"> <i>instrução</i>
+</th>
+<th style="width: 50px; font-weight: normal;"><a href="https://www.l2f.inesc-id.pt/~david/wiki/pt/extensions/wikitex/tmp/5bb9108ec17828b8c4063b514cd97a93"><img src="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/5bb9108ec17828b8c4063b514cd97a931.png" alt="amsmath"></a>
+</th>
+<td> <i>expressão</i> <b>;</b> <a href="https://www.l2f.inesc-id.pt/~david/wiki/pt/extensions/wikitex/tmp/cf14e61a7be033c1383d61d1eed4ba88"><img src="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/cf14e61a7be033c1383d61d1eed4ba881.png" alt="amsmath"></a> <i>expressão</i> <b>!</b> <a href="https://www.l2f.inesc-id.pt/~david/wiki/pt/extensions/wikitex/tmp/cf14e61a7be033c1383d61d1eed4ba88"><img src="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/cf14e61a7be033c1383d61d1eed4ba881.png" alt="amsmath"></a> <i>expressão</i> <b>!!</b>
+</td></tr>
+<tr>
+<th style="width: 50px; font-weight: normal;">
+</th>
+<th style="width: 50px; font-weight: normal;"><a href="https://www.l2f.inesc-id.pt/~david/wiki/pt/extensions/wikitex/tmp/5bb9108ec17828b8c4063b514cd97a93"><img src="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/5bb9108ec17828b8c4063b514cd97a931.png" alt="amsmath"></a>
+</th>
+<td> <b>next</b> <a href="https://www.l2f.inesc-id.pt/~david/wiki/pt/extensions/wikitex/tmp/cf14e61a7be033c1383d61d1eed4ba88"><img src="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/cf14e61a7be033c1383d61d1eed4ba881.png" alt="amsmath"></a> <b>stop</b> <a href="https://www.l2f.inesc-id.pt/~david/wiki/pt/extensions/wikitex/tmp/cf14e61a7be033c1383d61d1eed4ba88"><img src="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/cf14e61a7be033c1383d61d1eed4ba881.png" alt="amsmath"></a> <b>return</b>
+</td></tr>
+<tr>
+<th style="width: 50px; font-weight: normal;">
+</th>
+<th style="width: 50px; font-weight: normal;"><a href="https://www.l2f.inesc-id.pt/~david/wiki/pt/extensions/wikitex/tmp/5bb9108ec17828b8c4063b514cd97a93"><img src="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/5bb9108ec17828b8c4063b514cd97a931.png" alt="amsmath"></a>
+</th>
+<td> <i>instrução-condicional</i> <a href="https://www.l2f.inesc-id.pt/~david/wiki/pt/extensions/wikitex/tmp/cf14e61a7be033c1383d61d1eed4ba88"><img src="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/cf14e61a7be033c1383d61d1eed4ba881.png" alt="amsmath"></a> <i>instrução-de-iteração</i> <a href="https://www.l2f.inesc-id.pt/~david/wiki/pt/extensions/wikitex/tmp/cf14e61a7be033c1383d61d1eed4ba88"><img src="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/cf14e61a7be033c1383d61d1eed4ba881.png" alt="amsmath"></a> <i>bloco</i>
+</td></tr>
+<tr>
+<th style="width: 50px; font-weight: normal;"> <i>instrução-condicional</i>
+</th>
+<th style="width: 50px; font-weight: normal;"><a href="https://www.l2f.inesc-id.pt/~david/wiki/pt/extensions/wikitex/tmp/5bb9108ec17828b8c4063b514cd97a93"><img src="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/5bb9108ec17828b8c4063b514cd97a931.png" alt="amsmath"></a>
+</th>
+<td> <b>if</b> <b>(</b> <i>expressão</i> <b>)</b> <i>instrução</i> <a href="https://www.l2f.inesc-id.pt/~david/wiki/pt/extensions/wikitex/tmp/0e94f77d66203471861503dc9a0caf76"><img src="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/0e94f77d66203471861503dc9a0caf761.png" alt="amsmath"></a>  <b>elsif</b> <b>(</b> <i>expressão</i> <b>)</b> <i>instrução</i> <a href="https://www.l2f.inesc-id.pt/~david/wiki/pt/extensions/wikitex/tmp/5904ead0c81f10f9d01c41b00dcc9747"><img src="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/5904ead0c81f10f9d01c41b00dcc97471.png" alt="amsmath"></a> [ <b>else</b> <i>instrução</i> ]
+</td></tr>
+<tr>
+<th style="width: 50px; font-weight: normal;"> <i>instrução-de-iteração</i>
+</th>
+<th style="width: 50px; font-weight: normal;"><a href="https://www.l2f.inesc-id.pt/~david/wiki/pt/extensions/wikitex/tmp/5bb9108ec17828b8c4063b514cd97a93"><img src="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/5bb9108ec17828b8c4063b514cd97a931.png" alt="amsmath"></a>
+</th>
+<td> <b>while</b> <b>(</b> <i>expressão</i> <b>)</b> <i>instrução</i>
+</td></tr>
+<tr>
+<th style="width: 50px; font-weight: normal;">
+</th>
+<th style="width: 50px; font-weight: normal;"><a href="https://www.l2f.inesc-id.pt/~david/wiki/pt/extensions/wikitex/tmp/5bb9108ec17828b8c4063b514cd97a93"><img src="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/5bb9108ec17828b8c4063b514cd97a931.png" alt="amsmath"></a>
+</th>
+<td> <b>sweep</b> ( <b>+</b> <a href="https://www.l2f.inesc-id.pt/~david/wiki/pt/extensions/wikitex/tmp/cf14e61a7be033c1383d61d1eed4ba88"><img src="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/cf14e61a7be033c1383d61d1eed4ba881.png" alt="amsmath"></a> <b>-</b> ) <b>(</b> <i>lvalue</i> <b>:</b> <i>expressão</i> <b>:</b> <i>expressão</i> [ <b>:</b> <i>expressão</i> ] <b>)</b> <i>instrução</i>
+</td></tr>
+<tr>
+<th style="width: 50px; font-weight: normal;"> <i>expressões</i>
+</th>
+<th style="width: 50px; font-weight: normal;"><a href="https://www.l2f.inesc-id.pt/~david/wiki/pt/extensions/wikitex/tmp/5bb9108ec17828b8c4063b514cd97a93"><img src="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/5bb9108ec17828b8c4063b514cd97a931.png" alt="amsmath"></a>
+</th>
+<td> <i>expressão</i> <a href="https://www.l2f.inesc-id.pt/~david/wiki/pt/extensions/wikitex/tmp/0e94f77d66203471861503dc9a0caf76"><img src="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/0e94f77d66203471861503dc9a0caf761.png" alt="amsmath"></a> <b>,</b> <i>expressão</i> <a href="https://www.l2f.inesc-id.pt/~david/wiki/pt/extensions/wikitex/tmp/5904ead0c81f10f9d01c41b00dcc9747"><img src="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/5904ead0c81f10f9d01c41b00dcc97471.png" alt="amsmath"></a>
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="Tipos.2C_identificadores.2C_literais_e_defini.C3.A7.C3.A3o_de_express.C3.B5es">Tipos, identificadores, literais e definição de expressões</span></h2>
+<p>Algumas definições foram omitidas da gramática: <a href="#Tipos_de_dados">tipos de dados</a>, <i>identificador</i> (ver <a href="#Identificadores">identificadores</a>), <i>literal</i> (ver <a href="#Literais">literais</a>); <i>expressão</i> (ver <a href="#Express.C3.B5es">expressões</a>).
+</p>
+<h2><span class="mw-headline" id="Left-values">Left-values</span></h2>
+<p>Os <i>left-values</i> são posições de memória que podem ser 
+modificadas (excepto onde proibido pelo tipo de dados). Os elementos de 
+uma expressão que podem ser utilizados como <i>left-values</i> encontram-se individualmente identificados na <a href="#Express.C3.B5es">semântica das expressões</a>.
+</p>
+<h2><span class="mw-headline" id="Ficheiros">Ficheiros</span></h2>
+<p>Um ficheiro é designado por principal se contiver a <a href="#Fun.C3.A7.C3.A3o_principal_e_execu.C3.A7.C3.A3o_de_programas">função principal</a> (a que inicia o programa).
+</p>
+<h2><span class="mw-headline" id="Declara.C3.A7.C3.A3o_de_vari.C3.A1veis">Declaração de variáveis</span></h2>
+<p>Uma declaração de variável indica sempre um <a href="#Tipos_de_dados">tipo de dados</a> e um <a href="#Manipula.C3.A7.C3.A3o_de_nomes">identificador</a>.
+</p><p>Exemplos:
+</p>
+<ul><li> Inteiro: <b>int i</b></li>
+<li> Real: <b>real r</b></li>
+<li> Cadeia de caracteres: <b>string s</b></li>
+<li> Ponteiro para inteiro: <b>[int] p1</b> (equivalente a <b>int*</b> em C)</li>
+<li> Ponteiro para real: <b>[real] p2</b> (equivalente a <b>double*</b> em C)</li>
+<li> Ponteiro para cadeia de caracteres: <b>[string] p3</b> (equivalente a <b>char**</b> em C)</li>
+<li> Ponteiro para ponteiro para inteiro: <b>[[int]] p4</b> (equivalente a <b>int**</b> em C)</li></ul>
+<h2><span class="mw-headline" id="S.C3.ADmbolos_globais">Símbolos globais</span></h2>
+<p>Por omissão, os símbolos são privados a um módulo, não podendo ser importados por outros módulos.
+</p><p>O marcador <b>public</b> permite declarar um identificador como público, tornando-o acessível a partir de outros módulos.
+</p><p>O marcador <b>use</b> (opcional para funções) permite declarar 
+num módulo entidades definidas em outros módulos. As entidades não podem
+ ser inicializadas numa declaração importada.
+</p><p>Exemplos:
+</p>
+<ul><li> Declarar variável privada ao módulo: <b>real pi = 22.0/7   /*</b> <a href="http://en.wikipedia.org/wiki/Proof_that_22/7_exceeds_%CF%80" class="extiw" title="wp:Proof that 22/7 exceeds π">Proof that 22/7 exceeds π</a> <b>*/</b></li>
+<li> Declarar variável pública: <b>public real pi = 22/7.0</b></li>
+<li> Usar definição externa: <b>use real pi</b></li></ul>
+<h2><span class="mw-headline" id="Inicializa.C3.A7.C3.A3o">Inicialização</span></h2>
+<p>Quando existe, é uma expressão que segue o sinal <b>=</b> ("igual"): 
+inteira, real, ponteiro. Entidades reais podem ser inicializadas por 
+expressões inteiras (conversão implícita). A expressão de inicialização 
+deve ser um literal se a variável for global.
+</p><p>As <a href="#Cadeias_de_caracteres">cadeias de caracteres</a> são (possivelmente) inicializadas com uma lista não nula de valores sem separadores. 
+</p><p>Exemplos:
+</p>
+<ul><li> Inteiro (literal): <b>int i = 3</b></li>
+<li> Inteiro (expressão): <b>int i = j+1</b></li>
+<li> Real (literal): <b>real r = 3.2</b></li>
+<li> Real (expressão): <b>real r = i - 2.5 + f(3)</b></li>
+<li> Cadeia de caracteres (literal): <b>string s = "olá"</b></li>
+<li> Cadeia de caracteres (literais): <b>string s = "olá" "mãe"</b></li>
+<li> Ponteiro (literal): <b>[[[real]]] p = null</b></li>
+<li> Ponteiro (expressão): <b>[int] p = q + 1</b></li></ul>
+<h1><span class="mw-headline" id="Fun.C3.A7.C3.B5es">Funções</span></h1>
+<p>Uma função permite agrupar um conjunto de instruções num corpo, 
+executado com base num conjunto de parâmetros (os argumentos formais), 
+quando é invocada a partir de uma expressão.
+</p>
+<h2><span class="mw-headline" id="Declara.C3.A7.C3.A3o">Declaração</span></h2>
+<p>As funções são sempre designadas por identificadores constantes 
+precedidos do tipo de dados devolvido pela função. Se a função não 
+devolver um valor, usa-se a palavra reservada <b>procedure</b> para o indicar.
+</p><p>As funções que recebam argumentos devem indicá-los no cabeçalho. 
+Funções sem argumentos definem um cabeçalho vazio. Não é possível 
+aplicar os qualificadores de exportação/importação <b>public</b> ou <b>use</b> (ver <a href="#S.C3.ADmbolos_globais">símbolos globais</a>) às declarações dos argumentos de uma função.
+</p><p>A declaração de uma função sem corpo é utilizada para 
+caracterizar um identificador exterior ou para efectuar declarações 
+antecipadas (utilizadas para pré-declarar funções que sejam usadas antes
+ de ser definidas, por exemplo, entre duas funções mutuamente 
+recursivas). Caso a declaração tenha corpo, define-se uma nova função 
+(neste caso, não pode utilizar-se o qualificador <b>use</b>).
+</p>
+<h2><span class="mw-headline" id="Invoca.C3.A7.C3.A3o">Invocação</span></h2>
+<p>A função só pode ser invocada através de um identificador que refira uma função previamente declarada ou definida.
+</p><p>Se existirem argumentos, na invocação da função, o identificador é
+ seguido de uma lista de expressões delimitadas por parênteses curvos. 
+Esta lista é uma sequência, possivelmente vazia, de expressões separadas
+ por vírgulas. O número e tipo de parâmetros actuais deve ser igual ao 
+número e tipo dos parâmetros formais da função invocada. A ordem dos 
+parâmetros actuais deverá ser a mesma dos argumentos formais da função a
+ ser invocada.
+</p><p>De acordo com a convenção Cdecl, a função chamadora coloca os 
+argumentos na pilha e é responsável pela sua remoção, após o retorno da 
+chamada. Assim, os parâmetros actuais devem ser colocados na pilha pela 
+ordem inversa da sua declaração (i.e., são avaliados da direita para a 
+esquerda antes da invocação da função e o resultado passado por 
+cópia/valor). O endereço de retorno é colocado no topo da pilha pela 
+chamada à função.
+</p>
+<h2><span class="mw-headline" id="Corpo">Corpo</span></h2>
+<p>O corpo de uma função consiste num bloco que contém declarações 
+(opcionais) seguidas de instruções (opcionais). Não é possível aplicar 
+os qualificadores de exportação (<b>public</b>) ou de importação (<b>use</b>) (ver <a href="#S.C3.ADmbolos_globais">símbolos globais</a>) dentro do corpo de uma função.
+</p><p>O valor devolvido por uma função, através de atribuição ao <i>left-value</i> especial com o nome da função, deve ser do tipo declarado.
+</p><p>Se existir um valor declarado por omissão para o retorno da função (indicado pela notação <b>=</b>
+ seguindo a assinatura da função), então deve ser utilizado se não for 
+especificado outro. A especificação do valor de retorno por omissão é 
+obrigatoriamente um literal do tipo indicado. É um erro especificar um 
+valor de retorno se a função for declarada como não retornando um valor 
+(indicada como <b>procedure</b>). Uma função cujo retorno seja inteiro ou ponteiro retorna 0 (zero) ou <b>null</b>
+ por omissão (i.e., se não for especificado o valor de retorno). Em 
+todos os outros casos, o valor de retorno é indeterminado se não for 
+definido explicitamente.
+</p><p>Uma instrução <b>return</b> causa a interrupção da função e o retorno do seu valor actual ao chamador.
+</p><p>Qualquer bloco (usado, por exemplo, numa instrução condicional ou de iteração) pode definir variáveis.
+</p>
+<h2><span class="mw-headline" id="Fun.C3.A7.C3.A3o_principal_e_execu.C3.A7.C3.A3o_de_programas">Função principal e execução de programas</span></h2>
+<p>Um programa inicia-se com a invocação da função <b>xpl</b> (sem argumentos). Os argumentos com que o programa foi chamado podem ser obtidos através de funções <b>int argc()</b> (devolve o número de argumentos); <b>string argv(int n)</b> (devolve o n-ésimo argumento como uma cadeia de caracteres) (<b>n&gt;0</b>); e <b>string envp(int n)</b> (devolve a n-ésima variável de ambiente como uma cadeia de caracteres) (<b>n&gt;0</b>).
+</p><p>O valor de retorno da função principal é devolvido ao ambiente 
+que invocou o programa. Este valor de retorno segue as seguintes regras 
+(sistema operativo): 0 (zero), execução sem erros; 1 (um), argumentos 
+inválidos (em número ou valor); 2 (dois), erro de execução. Os valores 
+superiores a 128 indicam que o programa terminou com um sinal. Em geral,
+ para correcto funcionamento, os programas devem devolver 0 (zero) se a 
+execução foi bem sucedida e um valor diferente de 0 (zero) em caso de 
+erro.
+</p><p>A <a href="https://www.l2f.inesc-id.pt/~david/w/pt/Compiladores/Projecto_de_Compiladores/Material_de_Apoio_ao_Desenvolvimento" title="Compiladores/Projecto de Compiladores/Material de Apoio ao Desenvolvimento">biblioteca de run-time</a> (RTS) contém informação sobre outras funções de suporte disponíveis, incluindo chamadas ao sistema (ver também o <a href="https://www.l2f.inesc-id.pt/~david/w/pt/Manual_da_RTS" title="Manual da RTS">manual da RTS</a>).
+</p>
+<h1><span class="mw-headline" id="Instru.C3.A7.C3.B5es">Instruções</span></h1>
+<p>Excepto quando indicado, as instruções são executadas em sequência.
+</p>
+<h2><span class="mw-headline" id="Blocos">Blocos</span></h2>
+<p>Cada bloco tem uma zona de declarações de variáveis locais 
+(facultativa), seguida por uma zona com instruções (possivelmente 
+vazia). Não é possível declarar ou definir funções dentro de blocos.
+</p><p>A visibilidade das variáveis é limitada ao bloco em que foram 
+declaradas. As entidades declaradas podem ser directamente utilizadas em
+ sub-blocos ou passadas como argumentos para funções chamadas dentro do 
+bloco. Caso os identificadores usados para definir as variáveis locais 
+já estejam a ser utilizados para definir outras entidades ao alcance do 
+bloco, o novo identificador passa a referir uma nova entidade definida 
+no bloco até ao que ele termine (a entidade previamente definida 
+continua a existir, mas não pode ser directamente referida pelo seu 
+nome). Esta regra é também válida relativamente a argumentos de funções 
+(ver <a href="#Corpo">corpo das funções</a>).
+</p>
+<h2><span class="mw-headline" id="Instru.C3.A7.C3.A3o_condicional">Instrução condicional</span></h2>
+<p>Esta instrução tem comportamento semelhante ao da instrução <b>if-else</b> em C. As partes correspondentes a <b>elsif</b> em XPL comportam-se como encadeamentos de instruções condicionais na parte <b>else</b> de um if-else à la C.
+</p>
+<h2><span class="mw-headline" id="Instru.C3.A7.C3.A3o_de_itera.C3.A7.C3.A3o:_while">Instrução de iteração: while</span></h2>
+<p>Esta instrução tem comportamento idêntico ao da instrução <b>while</b> em C.
+</p>
+<h2><span class="mw-headline" id="Instru.C3.A7.C3.A3o_de_itera.C3.A7.C3.A3o:_sweep">Instrução de iteração: sweep</span></h2>
+<p>A instrução <b>sweep+</b>/<b>sweep-</b> inicializa o left-value com o
+ valor da primeira expressão. Se o valor for menor/maior ou igual ao 
+valor da segunda expressão, executa a instrução (caso contrário, termina
+ sem executar a instrução). Depois de executar a instrução, 
+incrementa/decrementa o left-value com o valor da terceira expressão (se
+ não for especificado esse valor, considera-se o valor 1 para o 
+incremento/decremento), reiniciando-se o ciclo: volta-se a fazer-se o 
+teste, etc.
+</p>
+<h2><span class="mw-headline" id="Instru.C3.A7.C3.A3o_de_termina.C3.A7.C3.A3o:_stop">Instrução de terminação: stop</span></h2>
+<p>A instrução <b>stop</b> termina o ciclo mais interior em que a instrução se encontrar, tal como a instrução <b>break</b> em C. Esta instrução só pode existir dentro de um ciclo, sendo a última instrução do seu bloco.
+</p>
+<h2><span class="mw-headline" id="Instru.C3.A7.C3.A3o_de_continua.C3.A7.C3.A3o:_next">Instrução de continuação: next</span></h2>
+<p>A instrução <b>next</b> reinicia o ciclo mais interior em que a instrução se encontrar, tal como a instrução <b>continue</b> em C. Esta instrução só pode existir dentro de um ciclo, sendo a última instrução do seu bloco.
+</p><p>Numa instrução <b>sweep</b>, a instrução <b>next</b> causa o incremento/decremento do left-value antes de se reiniciar o ciclo.
+</p>
+<h2><span class="mw-headline" id="Instru.C3.A7.C3.A3o_de_retorno:_return">Instrução de retorno: return</span></h2>
+<p>A instrução <b>return</b>, se existir, é a última instrução do seu bloco. Ver comportamento na <a href="#Corpo">descrição do corpo de uma função</a>.
+</p>
+<h2><span class="mw-headline" id="Express.C3.B5es_como_instru.C3.A7.C3.B5es_e_opera.C3.A7.C3.B5es_de_impress.C3.A3o">Expressões como instruções e operações de impressão</span></h2>
+<p>As expressões utilizadas como instruções são avaliadas, mesmo que não
+ produzam efeitos secundários, e, eventualmente, o seu valor impresso 
+(quando seguidas de <b>!</b> ou <b>!!</b> -- impressão sem/com mudança 
+de linha). Valores numéricos (inteiros ou reais) são impressos em 
+decimal. As cadeias de caracteres são impressas na codificação nativa. 
+Ponteiros não podem ser impressos.
+</p>
+<h1><span class="mw-headline" id="Express.C3.B5es">Expressões</span></h1>
+<p>Uma expressão é uma representação algébrica de uma quantidade: todas as expressões têm um tipo e devolvem um valor.
+</p><p>Existem <a href="#Express.C3.B5es_primitivas">expressões primitivas</a> e expressões que resultam da  <a href="#Express.C3.B5es_resultantes_de_avalia.C3.A7.C3.A3o_de_operadores">avaliação de operadores</a>.
+</p><p>A tabela seguinte apresenta as precedências relativas dos 
+operadores: é a mesma para operadores na mesma linha, sendo as linhas 
+seguintes de menor prioridade que as anteriores. A maioria dos 
+operadores segue a semântica da linguagem C (excepto onde explicitamente
+ indicado). Tal como em C, os valores lógicos são 0 (zero) (valor 
+falso), e diferente de zero (valor verdadeiro).
+</p>
+<table>
+<tbody><tr>
+<td> <b>Tipo de Expressão</b>
+</td>
+<td> <b>Operadores</b>
+</td>
+<td> <b>Associatividade</b>
+</td>
+<td> <b>Operandos</b>
+</td>
+<td> <b>Semântica</b>
+</td></tr>
+<tr>
+<td> primária
+</td>
+<td> <b>( ) [ ]</b>
+</td>
+<td> não associativos
+</td>
+<td> -
+</td>
+<td> <a href="#Par.C3.AAnteses_curvos">parênteses curvos</a>, <a href="#Indexa.C3.A7.C3.A3o">indexação</a>, <a href="#Reserva_de_mem.C3.B3ria">reserva de memória</a>
+</td></tr>
+<tr>
+<td> unária
+</td>
+<td> <b>+ -&nbsp;?</b>
+</td>
+<td> não associativos
+</td>
+<td> -
+</td>
+<td> <a href="#Identidade_e_sim.C3.A9trico">identidade e simétrico</a>, <a href="#Express.C3.A3o_de_indica.C3.A7.C3.A3o_de_posi.C3.A7.C3.A3o">indicação de posição</a>
+</td></tr>
+<tr>
+<th style="vertical-align: top; font-weight: normal;"> multiplicativa
+</th>
+<th style="vertical-align: top; font-weight: normal;"> <b>* /&nbsp;%</b>
+</th>
+<th style="vertical-align: top; font-weight: normal;"> da esquerda para a direita
+</th>
+<th style="vertical-align: top; font-weight: normal;"> inteiros, reais
+</th>
+<th style="vertical-align: top; font-weight: normal;"> C (% é apenas para inteiros)
+</th></tr>
+<tr>
+<th style="vertical-align: top; font-weight: normal;"> aditiva
+</th>
+<th style="vertical-align: top; font-weight: normal;"> <b>+ -</b>
+</th>
+<th style="vertical-align: top; font-weight: normal;"> da esquerda para a direita
+</th>
+<th style="vertical-align: top; font-weight: normal;"> inteiros, reais, ponteiros
+</th>
+<th style="vertical-align: top; font-weight: normal;"> C: se envolverem 
+ponteiros, calculam: (i) deslocamentos, i.e., um dos operandos deve ser 
+do tipo ponteiro e o outro do tipo inteiro; (ii) diferenças de 
+ponteiros, i.e., apenas quando se aplica o operador <b>-</b> a dois 
+ponteiros do mesmo tipo (o resultado é o número de objectos do tipo 
+apontado entre eles). Se a memória não for contígua, o resultado é 
+indefinido.
+</th></tr>
+<tr>
+<th style="vertical-align: top; font-weight: normal;"> comparativa
+</th>
+<th style="vertical-align: top; font-weight: normal;"> <b>&lt; &gt; &lt;= &gt;=</b>
+</th>
+<th style="vertical-align: top; font-weight: normal;"> da esquerda para a direita
+</th>
+<th style="vertical-align: top; font-weight: normal;"> inteiros, reais
+</th>
+<th style="vertical-align: top; font-weight: normal;"> C
+</th></tr>
+<tr>
+<th style="vertical-align: top; font-weight: normal;"> igualdade
+</th>
+<th style="vertical-align: top; font-weight: normal;"> <b>==&nbsp;!=</b>
+</th>
+<th style="vertical-align: top; font-weight: normal;"> da esquerda para a direita
+</th>
+<th style="vertical-align: top; font-weight: normal;"> inteiros, reais, ponteiros
+</th>
+<th style="vertical-align: top; font-weight: normal;"> C
+</th></tr>
+<tr>
+<th style="vertical-align: top; font-weight: normal;"> "não" lógico
+</th>
+<th style="vertical-align: top; font-weight: normal;"> <b>~</b>
+</th>
+<th style="vertical-align: top; font-weight: normal;"> não associativo
+</th>
+<th style="vertical-align: top; font-weight: normal;"> inteiros
+</th>
+<th style="vertical-align: top; font-weight: normal;"> C
+</th></tr>
+<tr>
+<th style="vertical-align: top; font-weight: normal;"> "e" lógico
+</th>
+<th style="vertical-align: top; font-weight: normal;"> <b>&amp;</b>
+</th>
+<th style="vertical-align: top; font-weight: normal;"> da esquerda para a direita
+</th>
+<th style="vertical-align: top; font-weight: normal;"> inteiros
+</th>
+<th style="vertical-align: top; font-weight: normal;"> C: o 2º argumento só é avaliado se o 1º não for falso.
+</th></tr>
+<tr>
+<th style="vertical-align: top; font-weight: normal;"> "ou" lógico
+</th>
+<th style="vertical-align: top; font-weight: normal;"> <b>|</b>
+</th>
+<th style="vertical-align: top; font-weight: normal;"> da esquerda para a direita
+</th>
+<th style="vertical-align: top; font-weight: normal;"> inteiros
+</th>
+<th style="vertical-align: top; font-weight: normal;"> C: o 2º argumento só é avaliado se o 1º não for verdadeiro.
+</th></tr>
+<tr>
+<th style="vertical-align: top; font-weight: normal;"> atribuição
+</th>
+<th style="vertical-align: top; font-weight: normal;"> <b>=</b>
+</th>
+<th style="vertical-align: top; font-weight: normal;"> da direita para a esquerda
+</th>
+<th style="vertical-align: top; font-weight: normal;"> todos os tipos
+</th>
+<th style="vertical-align: top; font-weight: normal;"> O valor da expressão do lado direito do operador é guardado na posição indicada pelo <i>left-value</i> (operando esquerdo do operador). Podem ser atribuídos valores inteiros a <i>left-values</i> reais (conversão automática). Nos outros casos, ambos os tipos têm de concordar.
+</th></tr></tbody></table>
+<h2><span class="mw-headline" id="Express.C3.B5es_primitivas">Expressões primitivas</span></h2>
+<p>As <a href="#Literais">expressões literais</a> e a <a href="#Invoca.C3.A7.C3.A3o">invocação de funções</a> foram definidas acima.
+</p>
+<h3><span class="mw-headline" id="Identificadores">Identificadores</span></h3>
+<p>Um identificador é uma expressão se tiver sido declarado. Um identificador pode denotar uma variável ou uma constante.
+</p><p>Um identificador é o caso mais simples de um <i><a href="#Left-values">left-value</a></i>, ou seja, uma entidade que pode ser utilizada no lado esquerdo (<i>left</i>) de uma atribuição. O valor de retorno de uma função é definido por um <i>left-value</i> especial (ver também definições relativas ao <a href="#Corpo">corpo das funções</a>).
+</p>
+<h3><span class="mw-headline" id="Leitura">Leitura</span></h3>
+<p>A operação de leitura de um valor inteiro ou real pode ser efectuado pela expressão <b>@</b>,
+ que devolve o valor lido, de acordo com o tipo esperado (inteiro ou 
+real). Caso se use como argumento dos operadores de impressão (<b>!</b> ou <b>!!</b>), deve ser lido um inteiro.
+</p><p>Exemplos:  <b>a = @</b> (leitura para <b>a</b>), <b>f(@)</b> (leitura para argumento de função), <b>@!!</b> (leitura e impressão).
+</p>
+<h3><span class="mw-headline" id="Par.C3.AAnteses_curvos">Parênteses curvos</span></h3>
+<p>Uma expressão entre parênteses curvos tem o valor da expressão sem os
+ parênteses e permite alterar a prioridade dos operadores. Uma expressão
+ entre parênteses não pode ser utilizada como <i>left-value</i> (ver também a <a href="#Indexa.C3.A7.C3.A3o">expressão de indexação</a>).
+</p>
+<h2><span class="mw-headline" id="Express.C3.B5es_resultantes_de_avalia.C3.A7.C3.A3o_de_operadores">Expressões resultantes de avaliação de operadores</span></h2>
+<h3><span class="mw-headline" id="Indexa.C3.A7.C3.A3o">Indexação</span></h3>
+<p>A indexação devolve o valor de uma posição de memória indicada por um
+ ponteiro. Consiste de uma expressão ponteiro seguida do índice entre 
+parênteses rectos. O resultado de uma indexação é um <i><a href="#Left-values">left-value</a></i>.
+</p><p>Exemplo (acesso à posição indicada por <b>p</b>): <b>p[0]</b>
+</p>
+<h3><span class="mw-headline" id="Identidade_e_sim.C3.A9trico">Identidade e simétrico</span></h3>
+<p>Os operadores identidade (<b>+</b>) e simétrico (<b>-</b>) aplicam-se a inteiros e reais. Têm o mesmo significado que em C.
+</p>
+<h3><span class="mw-headline" id="Reserva_de_mem.C3.B3ria">Reserva de memória</span></h3>
+<p>A expressão reserva de memória <b>[]</b> devolve o ponteiro que 
+aponta para a zona de memória, na pilha da função actual, contendo 
+espaço suficiente para o número de objectos indicados pelo seu argumento
+ inteiro.
+</p><p>Exemplo (reserva vector com 5 reais, apontados por <b>p</b>): <b>[real] p = [5]</b>
+</p>
+<h3><span class="mw-headline" id="Express.C3.A3o_de_indica.C3.A7.C3.A3o_de_posi.C3.A7.C3.A3o">Expressão de indicação de posição</span></h3>
+<p>O operador sufixo <b>?</b> aplica-se a <i>left-values</i>, retornando o endereço correspondente.
+</p><p>Exemplo (indica o endereço de <b>a</b>): <b>a?</b>
+</p>
+<h1><span class="mw-headline" id="Exemplos_e_Testes">Exemplos e Testes</span></h1>
+<p>Os exemplos abaixo não são exaustivos e não ilustram todos os aspectos da linguagem.
+</p><p>Estão ainda disponíveis outros  <a href="https://www.l2f.inesc-id.pt/~david/w/pt/Compiladores/Projecto_de_Compiladores/Testes_Autom%C3%A1ticos_2016-2017" title="Compiladores/Projecto de Compiladores/Testes Automáticos 2016-2017">pacotes de testes</a>.
+</p><p>O seguinte exemplo ilustra um programa com dois módulos: um que define a função <b>factorial</b> e outro que define a função <b>xpl</b> (função principal).
+</p><p>Definição da função <i>factorial</i> num ficheiro (<b>factorial.xpl</b>):
+</p>
+<pre>public int factorial(int n) = 1 {
+  if (n &gt; 1) factorial = n * factorial(n-1); else factorial = 1;
+}
+</pre>
+<p>Exemplo da utilização da função <i>factorial</i> num outro ficheiro (<b>main.xpl</b>):
+</p>
+<pre>// external builtin functions
+use int argc()
+use string argv(int n)
+use int atoi(string s)
+
+// external user functions
+use int factorial(int n)
+
+// the main function
+public int xpl() = 0 {
+  int f = 1;
+  "Teste para a função factorial"!!
+  if (argc() == 2) f = atoi(argv(1));
+  f! "! = "! factorial(f)!!
+}
+</pre>
+<p>Como compilar:
+</p>
+<pre>xpl --target asm factorial.xpl
+xpl --target asm main.xpl
+yasm -felf32 factorial.asm
+yasm -felf32 main.asm
+ld -melf_i386 -o main factorial.o main.o -lrts
+</pre>
+<h1><span class="mw-headline" id="Omiss.C3.B5es_e_Erros">Omissões e Erros</span></h1>
+<p>Casos omissos e erros serão corrigidos em futuras versões do manual de referência.
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.316 seconds
+Real time usage: 8.754 seconds
+Preprocessor visited node count: 648/1000000
+Preprocessor generated node count: 1251/1000000
+Post‐expand include size: 10585/2097152 bytes
+Template argument size: 155/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+-->
+</div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="https://www.l2f.inesc-id.pt/~david/wiki/pt/index.php?title=Compiladores/Projecto_de_Compiladores/Projecto_2016-2017/Manual_de_Refer%C3%AAncia_da_Linguagem_XPL&amp;oldid=8862">https://www.l2f.inesc-id.pt/~david/wiki/pt/index.php?title=Compiladores/Projecto_de_Compiladores/Projecto_2016-2017/Manual_de_Referência_da_Linguagem_XPL&amp;oldid=8862</a>"</div>
+						<div class="clear_both"></div>
+					</div>
+		    	<div class="group"><div id="catlinks" class="catlinks"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://www.l2f.inesc-id.pt/~david/w/pt/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="https://www.l2f.inesc-id.pt/~david/wiki/pt/index.php?title=Category:Compiladores_2015/2016&amp;action=edit&amp;redlink=1" class="new label" title="Category:Compiladores 2015/2016 (page does not exist)">Compiladores 2015/2016</a></li><li><a href="https://www.l2f.inesc-id.pt/~david/w/pt/Category:Compiladores" title="Category:Compiladores" class="label">Compiladores</a></li><li><a href="https://www.l2f.inesc-id.pt/~david/w/pt/Category:Ensino" title="Category:Ensino" class="label">Ensino</a></li></ul></div></div></div>
+		    			    </div>
+		</div>
+
+			<footer class="row">
+				<div id="footer">
+										<div id="footer-left" class="small-8 large-centered columns text-center">
+					<ul id="footer-left">
+													<li id="footer-lastmod"> This page was last modified on 25 March 2017, at 14:31.</li>
+													<li id="footer-viewcount">This page has been accessed 12,718 times.</li>
+													<li id="footer-privacy"><a href="https://www.l2f.inesc-id.pt/~david/w/pt/Wiki**3:Privacy_policy" title="Wiki**3:Privacy policy">Privacy policy</a></li>
+													<li id="footer-about"><a href="https://www.l2f.inesc-id.pt/~david/w/pt/Wiki**3:About" title="Wiki**3:About">About Wiki**3</a></li>
+													<li id="footer-disclaimer"><a href="https://www.l2f.inesc-id.pt/~david/w/pt/Wiki**3:General_disclaimer" title="Wiki**3:General disclaimer">Disclaimers</a></li>
+															
+					</ul>
+					</div>	
+					<div id="footer-right-icons" class="large-12 small-12 columns">
+					<ul id="poweredby">
+													<li class="poweredby">								<a href="https://www.mediawiki.org/">Powered by MediaWiki</a>															</li>
+											</ul>
+					</div>								
+				</div>
+			</footer>
+
+		</div>
+		
+		<script>/*<![CDATA[*/window.jQuery && jQuery.ready();/*]]>*/</script><script>if(window.mw){
+mw.loader.state({"skins.foreground":"loading","site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://www.l2f.inesc-id.pt/~david/wiki/pt/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=skins.foreground\u0026amp;only=scripts\u0026amp;skin=foreground\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script><script src="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/load_003.php"></script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://www.l2f.inesc-id.pt/~david/wiki/pt/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=foreground\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script><script src="Compiladores_Projecto%20de%20Compiladores_Projecto%202016-2017_Manual%20de%20Refer%C3%AAncia%20da%20Linguagem%20XPL%20-%20Wiki%203_files/load_005.php"></script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":8970});
+}</script>
+		
+		
+
+<div style="display: none; font-size: 14px;" class="suggestions"><div class="suggestions-results"></div><div class="suggestions-special"></div></div></body></html>

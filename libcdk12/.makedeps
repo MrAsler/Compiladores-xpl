@@ -1,0 +1,31 @@
+basic_scanner.o: basic_scanner.cpp cdk/basic_scanner.h cdk/null_deleter.h
+yy_scanner.o: yy_scanner.cpp cdk/yy_scanner.h cdk/basic_scanner.h \
+ cdk/null_deleter.h
+yy_parser.o: yy_parser.cpp cdk/yy_parser.h cdk/basic_parser.h \
+ cdk/basic_scanner.h cdk/null_deleter.h cdk/yy_scanner.h
+basic_target.o: basic_target.cpp cdk/basic_target.h
+basic_factory.o: basic_factory.cpp cdk/basic_factory.h cdk/compiler.h \
+ cdk/null_deleter.h cdk/basic_scanner.h cdk/basic_parser.h \
+ cdk/basic_target.h
+compiler.o: compiler.cpp cdk/compiler.h cdk/null_deleter.h \
+ cdk/basic_scanner.h cdk/basic_parser.h cdk/basic_target.h
+yy_factory.o: yy_factory.cpp cdk/yy_factory.h cdk/basic_factory.h \
+ cdk/compiler.h cdk/null_deleter.h cdk/basic_scanner.h cdk/basic_parser.h \
+ cdk/basic_target.h cdk/yy_scanner.h cdk/yy_parser.h
+basic_type.o: basic_type.cpp cdk/basic_type.h
+basic_ast_visitor.o: basic_ast_visitor.cpp cdk/basic_ast_visitor.h
+basic_parser.o: basic_parser.cpp cdk/basic_parser.h cdk/basic_scanner.h \
+ cdk/null_deleter.h
+main.o: main.cpp cdk/compiler.h cdk/null_deleter.h cdk/basic_scanner.h \
+ cdk/basic_parser.h cdk/basic_target.h cdk/basic_factory.h
+postfix_debug_emitter.o: emitters/postfix_debug_emitter.cpp \
+ cdk/emitters/postfix_debug_emitter.h \
+ cdk/emitters/basic_postfix_emitter.h cdk/compiler.h cdk/null_deleter.h \
+ cdk/basic_scanner.h cdk/basic_parser.h cdk/basic_target.h
+postfix_ix86_emitter.o: emitters/postfix_ix86_emitter.cpp \
+ cdk/emitters/postfix_ix86_emitter.h cdk/emitters/basic_postfix_emitter.h \
+ cdk/compiler.h cdk/null_deleter.h cdk/basic_scanner.h cdk/basic_parser.h \
+ cdk/basic_target.h
+basic_postfix_emitter.o: emitters/basic_postfix_emitter.cpp \
+ cdk/emitters/basic_postfix_emitter.h cdk/compiler.h cdk/null_deleter.h \
+ cdk/basic_scanner.h cdk/basic_parser.h cdk/basic_target.h
